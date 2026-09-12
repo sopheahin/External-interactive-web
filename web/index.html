@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory of Applied Nanomaterial — Management System</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="lab-logo-wrap">
+                <img src="assets/logo.png" alt="Lab of Applied Nanomaterial Logo" class="lab-logo-img">
+            </div>
+            <h2>Lab of Applied<br>Nanomaterial</h2>
+            <p class="lab-subtitle">Management System</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#dashboard" class="nav-link active" data-page="dashboard"><span class="nav-icon">📊</span> Dashboard</a></li>
+            <li><a href="#chemicals" class="nav-link" data-page="chemicals"><span class="nav-icon">🧪</span> Chemical Inventory</a></li>
+            <li><a href="#instruments" class="nav-link" data-page="instruments"><span class="nav-icon">🔬</span> Instruments</a></li>
+            <li><a href="#instructions" class="nav-link" data-page="instructions"><span class="nav-icon">📋</span> Work Instructions</a></li>
+            <li><a href="#booking" class="nav-link" data-page="booking"><span class="nav-icon">📅</span> Lab Booking</a></li>
+            <li><a href="#structure" class="nav-link" data-page="structure"><span class="nav-icon">👥</span> Lab Structure</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button id="btn-export-all" class="btn btn-outline btn-sm" title="Backup all data to JSON">💾 Backup</button>
+            <button id="btn-import-all" class="btn btn-outline btn-sm" title="Restore data from backup">📂 Restore</button>
+            <input type="file" id="import-file" accept=".json" style="display:none">
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <header class="top-header">
+            <button id="sidebar-toggle" class="btn-icon" title="Toggle sidebar">☰</button>
+            <h1 id="page-title">Dashboard</h1>
+            <div class="header-actions">
+                <span class="current-date" id="current-date"></span>
+                <button id="theme-toggle" class="btn-icon" title="Toggle dark/light theme">🌙</button>
+            </div>
+        </header>
+        <div id="main-content" class="content-area"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal</h3>
+                <button class="btn-icon modal-close" id="modal-close">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Confirm dialog -->
+    <div id="confirm-overlay" class="modal-overlay hidden">
+        <div class="modal modal-sm">
+            <div class="modal-header">
+                <h3 id="confirm-title">Confirm</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message"></p>
+                <div class="form-actions">
+                    <button class="btn btn-outline" id="confirm-cancel">Cancel</button>
+                    <button class="btn btn-danger" id="confirm-ok">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/app.js"></script>
+    <script src="js/chemicals.js"></script>
+    <script src="js/instruments.js"></script>
+    <script src="js/instructions.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/structure.js"></script>
+</body>
+</html>
