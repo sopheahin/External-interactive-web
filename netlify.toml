@@ -1,0 +1,8 @@
+# Netlify configuration for Laboratory of Applied Nanomaterial
+[build]
+  publish = "web"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
